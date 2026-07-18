@@ -4,6 +4,12 @@ This logs into YOUR personal Telegram account (the "assistant" that will join th
 Never share the printed session string with anyone — it's equivalent to your account login.
 """
 
+import asyncio
+try:
+    asyncio.get_event_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 from pyrogram import Client
 
 API_ID = int(input("API_ID: "))
